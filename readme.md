@@ -15,3 +15,4 @@ python user.py #HTMLTestRunner
 
 Selenium IDE
 Selenium WebDriver
+python -m unittest seleniumWD.py

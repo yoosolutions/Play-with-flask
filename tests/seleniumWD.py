@@ -1,4 +1,4 @@
-#flask run before running this
+#To run the Selenium tests, you need to have the flask app running in TestingConfig.
 import unittest, os, sys
 sys.path.append('../')
 from config import Config, TestConfig
@@ -12,7 +12,7 @@ class UserCase(unittest.TestCase):
     def setUp(self):
         service = Service(executable_path=r'chromedriver.exe')
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument('--headless')  # Run Chrome in headless mode.
+        #chrome_options.add_argument('--headless')  # Run Chrome in headless mode.
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         self.driver = webdriver.Chrome(service = service, options = chrome_options)
