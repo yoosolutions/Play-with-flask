@@ -1,4 +1,5 @@
-import unittest, os
+import unittest, os, sys
+sys.path.append('../')
 from app import app, db
 from app.models import User
 
@@ -7,9 +8,11 @@ class UserCase(unittest.TestCase):
         basedir = os.path.abspath(os.path.dirname(__file__))
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'test.db')
         self.app = app.test_client()
+        self.app_context = app.app_context()
+        self.app_context.push()
         db.create_all()
-        user1 = User(id = '1', username = 'Konstantin', email = 'k.tagintsev@gmail.com')
-        user2 = User(id = '2', username = 'Ivan', email = 'test@mail.ru')
+        user1 = User(username = 'Konstantin', email = 'k.tagintsev@gmail.com')
+        user2 = User(username = 'Ivan', email = 'test@mail.ru')
         db.session.add(user1)
         db.session.add(user2)
         db.session.commit()
@@ -17,9 +20,12 @@ class UserCase(unittest.TestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+        self.app_context.pop()
 
     def testPasswordHashing(self):
-        user = User.query.get('1')
-        user.set_password('test')
-        self.assertFalse(user.check_password('lal'))
-        self.assertTrue(user.check_password('test'))
+        user1 = db.session.get(User, 1)
+        user2 = db.session.get(User, 2)
+        user1.set_password('test')
+        self.assertFalse(user1.check_password('lal'))
+        self.assertTrue(user1.check_password('test'))
+        self.assertTrue(user2.username == 'Ivan')
