@@ -1,12 +1,12 @@
-import unittest, os, sys
+import unittest, os, sys, HtmlTestRunner
 sys.path.append('../')
+from config import Config, TestConfig
+Config.SQLALCHEMY_DATABASE_URI = TestConfig.SQLALCHEMY_DATABASE_URI
 from app import app, db
 from app.models import User
 
 class UserCase(unittest.TestCase):
     def setUp(self):
-        basedir = os.path.abspath(os.path.dirname(__file__))
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'test.db')
         self.app = app.test_client()
         self.app_context = app.app_context()
         self.app_context.push()
@@ -29,3 +29,6 @@ class UserCase(unittest.TestCase):
         self.assertFalse(user1.check_password('lal'))
         self.assertTrue(user1.check_password('test'))
         self.assertTrue(user2.username == 'Ivan')
+
+if __name__ == '__main__':
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='HTMLTestRunner'))
