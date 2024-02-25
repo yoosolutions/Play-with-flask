@@ -12,3 +12,6 @@ cd tests -> python -m unittest user.py
 coverage run -m unittest user.py
 coverage report -m
 python user.py #HTMLTestRunner
+
+Selenium IDE
+Selenium WebDriver

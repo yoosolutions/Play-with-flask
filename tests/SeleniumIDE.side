@@ -1,0 +1,119 @@
+{
+  "id": "7dae61cd-b8ab-4f6d-9889-094900d432bc",
+  "version": "2.0",
+  "name": "flask",
+  "url": "http://127.0.0.1:5000",
+  "tests": [{
+    "id": "58ec15e0-f112-4730-b55b-8ef7c91396f7",
+    "name": "1",
+    "commands": [{
+      "id": "a0a205e4-fe92-4a60-8060-635863399d7c",
+      "comment": "",
+      "command": "open",
+      "target": "/login?next=%2F",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5bd8353a-5c3b-4d4f-ba40-c7e2a05ae49a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7675feff-37ff-4f27-9246-28daefe4e8b5",
+      "comment": "",
+      "command": "open",
+      "target": "/login?next=%2F",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f86ef63-dfc0-44b1-ac58-e5a419c9cb37",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1809x913",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ce0dde5-51e3-44ad-a62e-7a43713fe9ba",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4e2f0cd-3da8-4ddc-a5d6-b4f5660cd7d5",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "30c5ed10-0be4-4d58-8b3a-42dfc9d6bedc",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "49265c94-101c-45ed-bc00-69702da8ed81",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["name=submit", "name"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//p[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23f30b11-fc47-4f40-abc6-986a58d5633e",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(2) > p",
+      "targets": [
+        ["css=div:nth-child(2) > p", "css:finder"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'John says: Beautiful day in Portland!')]", "xpath:innerText"]
+      ],
+      "value": "Beautiful day in Portland!"
+    }]
+  }],
+  "suites": [{
+    "id": "d36e0f38-32ab-4758-83a2-e78d5f0396ee",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["58ec15e0-f112-4730-b55b-8ef7c91396f7"]
+  }],
+  "urls": ["http://127.0.0.1:5000/"],
+  "plugins": []
+}
